@@ -1,4 +1,4 @@
-require('./clipboard-mini-single')
+import ClipboardMiniSingle from './clipboard-mini-single'
 
 class ClipboardMini {
   constructor(selector) {
