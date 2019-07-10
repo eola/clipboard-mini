@@ -2,7 +2,7 @@ class ClipboardMiniSingle {
   constructor(el) {
     this.el = el
     this.text = null
-    this.init()
+    this.setupClipboard()
   }
 
   getAttributeValue(suffix) {

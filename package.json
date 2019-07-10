@@ -4,7 +4,9 @@
   "description": "Super tiny copy-to-clipboard JS library",
   "main": "dist/index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "npm run build-debug && npm run build-min",
+    "build-debug": "webpack",
+    "build-min": "cross-env NODE_ENV=production webpack",
     "dev": "webpack --watch",
     "test": "jest --watch"
   },
@@ -25,11 +27,17 @@
   "bugs": {
     "url": "https://github.com/eola/clipboard-mini"
   },
+  "jest": {
+    "verbose": true,
+    "restoreMocks": true
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "jest": "^20.0.3",
     "webpack": "^4.5.0",
     "webpack-cli": "^3.1.2"
