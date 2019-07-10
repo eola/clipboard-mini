@@ -1,11 +1,11 @@
 {
   "name": "clipboard-mini",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Super tiny copy-to-clipboard JS library",
   "main": "index.js",
   "scripts": {
-    "build": "babel --presets env src -d ./dist/ --ignore src/index.test.js",
-    "dev": "babel --presets env src -d ./dist/ --watch --ignore src/index.test.js",
+    "build": "babel --presets env src -d ./dist/ --ignore src/clipboard-mini.test.js",
+    "dev": "babel --presets env src -d ./dist/ --watch --ignore src/clipboard-mini.test.js",
     "test": "jest --watch"
   },
   "repository": {
