@@ -1,0 +1,35 @@
+{
+  "name": "clipboard-mini",
+  "version": "1.0.0",
+  "description": "Super tiny copy-to-clipboard JS library",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel --presets env src -d ./dist/ --ignore src/index.test.js",
+    "dev": "babel --presets env src -d ./dist/ --watch --ignore src/index.test.js",
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eola/clipboard-mini"
+  },
+  "keywords": [
+    "clipboard",
+    "mini",
+    "js",
+    "clipboard-js",
+    "vanilla",
+    "tiny"
+  ],
+  "author": "Jaime Caballero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eola/clipboard-mini"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "jest": "^20.0.3"
+  }
+}
