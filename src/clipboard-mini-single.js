@@ -1,6 +1,4 @@
-
-
-class ClipboardMiniSingle {
+export default class ClipboardMiniSingle {
   constructor(el) {
     this.el = el
     this.text = null
@@ -80,5 +78,3 @@ class ClipboardMiniSingle {
     this.el.addEventListener('click', this.handleClick.bind(this))
   }
 }
-
-module.exports = ClipboardMiniSingle

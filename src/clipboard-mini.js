@@ -1,6 +1,6 @@
 import ClipboardMiniSingle from './clipboard-mini-single'
 
-class ClipboardMini {
+export default class ClipboardMini {
   constructor(selector) {
     this.elements = document.querySelectorAll(selector)
     this.list = []
@@ -14,5 +14,3 @@ class ClipboardMini {
     }
   }
 }
-
-module.exports = ClipboardMini
