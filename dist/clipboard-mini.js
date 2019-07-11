@@ -1,5 +1,5 @@
 /*!
- * clipboard-mini v0.1.0
+ * clipboard-mini v0.2.0
  * —
  * https://github.com/eola/clipboard-mini
  * Licensed MIT
@@ -165,10 +165,10 @@ var ClipboardMiniSingle = function () {
     key: 'getAttributeValue',
     value: function getAttributeValue(suffix) {
       var attribute = 'data-clipboard-' + suffix;
-      if (!element.hasAttribute(attribute)) {
+      if (!this.el.hasAttribute(attribute)) {
         return;
       }
-      return element.getAttribute(attribute);
+      return this.el.getAttribute(attribute);
     }
   }, {
     key: 'copy',
@@ -179,7 +179,7 @@ var ClipboardMiniSingle = function () {
       target.select();
       var result = document.execCommand('copy');
 
-      if (typeof beforeRestore == 'function') beforeRestore();
+      if (typeof beforeRestore === 'function') beforeRestore();
 
       // Restore selection
       if (selected) {
@@ -195,7 +195,7 @@ var ClipboardMiniSingle = function () {
   }, {
     key: 'copyFromHardcoded',
     value: function copyFromHardcoded() {
-      var text = this.el.getAttributeValue('text');
+      var text = this.getAttributeValue('text');
       if (!text) return;
 
       // Creates a ghost textarea to copy from
@@ -206,7 +206,7 @@ var ClipboardMiniSingle = function () {
       el.style.left = '-9999px';
       document.body.appendChild(el);
 
-      return this.copy(target, function () {
+      return this.copy(el, function () {
         // Remove ghost textare
         document.body.removeChild(el);
       });
@@ -217,7 +217,7 @@ var ClipboardMiniSingle = function () {
   }, {
     key: 'copyFromSelector',
     value: function copyFromSelector() {
-      var selector = this.el.getAttributeValue('target');
+      var selector = this.getAttributeValue('target');
       var target = document.querySelector(selector);
       if (!target) return;
 
@@ -225,8 +225,18 @@ var ClipboardMiniSingle = function () {
     }
   }, {
     key: 'handleClick',
-    value: function handleClick() {
-      return this.copyFromHardcoded() || this.copyFromSelector() || false;
+    value: function handleClick(e) {
+      var _this = this;
+
+      var success = this.copyFromHardcoded() || this.copyFromSelector() || false;
+      if (success) {
+        var label = this.el.innerHTML;
+        this.el.innerHTML = 'Copied!';
+        setTimeout(function () {
+          _this.el.innerHTML = label;
+        }, 2500);
+      }
+      return success;
     }
   }, {
     key: 'setupClipboard',

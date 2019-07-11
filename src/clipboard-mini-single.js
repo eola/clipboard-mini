@@ -1,3 +1,5 @@
+
+
 class ClipboardMiniSingle {
   constructor(el) {
     this.el = el
@@ -7,10 +9,10 @@ class ClipboardMiniSingle {
 
   getAttributeValue(suffix) {
     const attribute = `data-clipboard-${suffix}`
-    if (!element.hasAttribute(attribute)) {
+    if (!this.el.hasAttribute(attribute)) {
       return
     }
-    return element.getAttribute(attribute)
+    return this.el.getAttribute(attribute)
   }
 
   copy(target, beforeRestore) {
@@ -23,7 +25,7 @@ class ClipboardMiniSingle {
     target.select()
     const result = document.execCommand('copy')
 
-    if (typeof beforeRestore == 'function') beforeRestore()
+    if (typeof beforeRestore === 'function') beforeRestore()
 
     // Restore selection
     if (selected) {
@@ -36,7 +38,7 @@ class ClipboardMiniSingle {
 
   // Detects a string in 'data-attribute-text' and copies from it
   copyFromHardcoded() {
-    const text = this.el.getAttributeValue('text')
+    const text = this.getAttributeValue('text')
     if (!text) return
 
     // Creates a ghost textarea to copy from
@@ -47,7 +49,7 @@ class ClipboardMiniSingle {
     el.style.left = '-9999px'
     document.body.appendChild(el)
 
-    return this.copy(target, () => {
+    return this.copy(el, () => {
       // Remove ghost textare
       document.body.removeChild(el)
     })
@@ -55,7 +57,7 @@ class ClipboardMiniSingle {
 
   // Detects a selector on 'data-attribute-target' and copies from it
   copyFromSelector() {
-    const selector = this.el.getAttributeValue('target')
+    const selector = this.getAttributeValue('target')
     const target = document.querySelector(selector)
     if (!target) return
 
@@ -63,14 +65,12 @@ class ClipboardMiniSingle {
   }
 
   handleClick(e) {
-    const success = this.copyFromHardcoded() ||
-                    this.copyFromSelector() ||
-                    false
+    const success = this.copyFromHardcoded() || this.copyFromSelector() || false
     if (success) {
-      const label = e.trigger.innerHTML
-      e.trigger.innerHTML = 'Copied!'
+      const label = this.el.innerHTML
+      this.el.innerHTML = 'Copied!'
       setTimeout(() => {
-        e.trigger.innerHTML = label
+        this.el.innerHTML = label
       }, 2500)
     }
     return success
