@@ -62,10 +62,18 @@ class ClipboardMiniSingle {
     return this.copy(target)
   }
 
-  handleClick() {
-    return this.copyFromHardcoded() ||
-      this.copyFromSelector() ||
-      false
+  handleClick(e) {
+    const success = this.copyFromHardcoded() ||
+                    this.copyFromSelector() ||
+                    false
+    if (success) {
+      const label = e.trigger.innerHTML
+      e.trigger.innerHTML = 'Copied!'
+      setTimeout(() => {
+        e.trigger.innerHTML = label
+      }, 2500)
+    }
+    return success
   }
 
   setupClipboard() {

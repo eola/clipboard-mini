@@ -4,7 +4,11 @@ import ClipboardMiniSingle from './clipboard-mini-single'
 describe('ClipboardMini', () => {
   beforeEach(() => {
     document.body.innerHTML = `
-      <button class="btn">
+      <button class="btn" id="first-btn">
+        Copy
+      </button>
+
+      <button class="btn" id="second-btn">
         Copy
       </button>
 
@@ -26,8 +30,10 @@ describe('ClipboardMini', () => {
   test('it initialises correctly', () => {
     const clipboard = new ClipboardMini('.btn')
 
-    expect(clipboard.elements).toHaveLength(1)
-    expect(clipboard.list).toHaveLength(1)
+    expect(clipboard.elements).toHaveLength(2)
+    expect(clipboard.list).toHaveLength(2)
     expect(clipboard.list[0]).toBeInstanceOf(ClipboardMiniSingle)
+    expect(clipboard.list[1]).toBeInstanceOf(ClipboardMiniSingle)
+    expect(clipboard.list[2]).toBeUndefined()
   })
 })
