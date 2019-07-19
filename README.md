@@ -1,4 +1,4 @@
-# [clipboard-mini](https://www.npmjs.com/package/clipboard-mini) ![npm version](https://img.shields.io/npm/v/clipboard-mini.svg) ![downloads](https://img.shields.io/npm/dt/clipboard-mini.svg) ![gzipped weight](https://img.shields.io/bundlephobia/minzip/clipboard-mini.svg?label=gzipped)
+# [clipboard-mini](https://www.npmjs.com/package/clipboard-mini) · ![npm version](https://img.shields.io/npm/v/clipboard-mini.svg) ![downloads](https://img.shields.io/npm/dt/clipboard-mini.svg) ![gzipped weight](https://img.shields.io/bundlephobia/minzip/clipboard-mini.svg?label=gzipped)
 
 Super tiny copy-to-clipboard JS library.
 
