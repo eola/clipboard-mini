@@ -1,6 +1,6 @@
 {
   "name": "clipboard-mini",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Super tiny copy-to-clipboard JS library",
   "main": "dist/index.js",
   "scripts": {
@@ -37,9 +37,10 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.2.0",
-    "uglifyjs-webpack-plugin": "^2.0.1",
     "jest": "^20.0.3",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.5.0",
     "webpack-cli": "^3.1.2"
-  }
+  },
+  "dependencies": {}
 }

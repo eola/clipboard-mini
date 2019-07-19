@@ -2,6 +2,9 @@ import ClipboardMini from './clipboard-mini'
 import ClipboardMiniSingle from './clipboard-mini-single'
 
 describe('ClipboardMini', () => {
+  beforeAll(() => {
+    document.queryCommandSupported = () => true
+  })
   beforeEach(() => {
     document.body.innerHTML = `
       <button class="btn" id="first-btn">

@@ -8,6 +8,13 @@ export default class ClipboardMini {
   }
 
   init() {
+    // Can we copy?
+    const canCopy = ('queryCommandSupported' in document) && document.queryCommandSupported('copy')
+    if (!canCopy) {
+      console.log("Copy command can't be executed")
+      return
+    }
+
     let i = this.elements.length
     while (i--) {
       this.list.push(new ClipboardMiniSingle(this.elements[i]))

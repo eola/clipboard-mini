@@ -1,5 +1,5 @@
 /*!
- * clipboard-mini v0.2.1
+ * clipboard-mini v0.3.0
  * —
  * https://github.com/eola/clipboard-mini
  * Licensed MIT
@@ -133,6 +133,13 @@ var ClipboardMini = function () {
   _createClass(ClipboardMini, [{
     key: 'init',
     value: function init() {
+      // Can we copy?
+      var canCopy = 'queryCommandSupported' in document && document.queryCommandSupported('copy');
+      if (!canCopy) {
+        console.log("Copy command can't be executed");
+        return;
+      }
+
       var i = this.elements.length;
       while (i--) {
         this.list.push(new _clipboardMiniSingle2.default(this.elements[i]));
