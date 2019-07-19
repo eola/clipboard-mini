@@ -1,6 +1,8 @@
 # clipboard-mini
 Super tiny copy-to-clipboard JS library. Only 1.34KB!
 
+![alt text](https://img.shields.io/bundlephobia/minzip/clipboard-mini.svg?label=gzipped "Gzipped weight")
+
 If you've come from [clipboard.js](https://clipboardjs.com/) and want a smaller package, you get pretty much the same here at half the cost (in KB).
 
 No dependencies at all, no flash no nothing. Vanilla JS 🚀
