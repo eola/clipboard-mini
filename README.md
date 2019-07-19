@@ -1,4 +1,4 @@
-# clipboard-mini ![alt text](https://img.shields.io/bundlephobia/minzip/clipboard-mini.svg?label=gzipped "Gzipped weight")
+# clipboard-mini ![alt text](https://img.shields.io/npm/v/clipboard-mini.svg "npm version") ![alt text](https://img.shields.io/bundlephobia/minzip/clipboard-mini.svg?label=gzipped "Gzipped weight")
 
 Super tiny copy-to-clipboard JS library.
 
