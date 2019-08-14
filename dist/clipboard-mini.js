@@ -1,5 +1,5 @@
 /*!
- * clipboard-mini v0.3.0
+ * clipboard-mini v0.3.1
  * —
  * https://github.com/eola/clipboard-mini
  * Licensed MIT
